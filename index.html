@@ -1,3 +1,24 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="theme-color" content="#0a2558"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>China Auto CRM Demo</title><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="app-icon-192.png"><link rel="stylesheet" href="style.css"></head><body>
-<div class="app"><aside><div class="brand">CA<span>CRM</span><small>DEMO</small></div><nav><button data-page="dashboard" class="active">总览</button><button data-page="customers">客户</button><button data-page="followups">跟进</button><button data-page="quotes">报价</button></nav><div class="demo-note">演示版<br>全部为虚拟数据</div></aside><main><header><div><p>CHINA AUTO EXPORT</p><h1 id="title">业务总览</h1></div><button id="addBtn" class="primary">＋ 新增客户</button></header><section id="content"></section></main></div>
-<div id="modal" class="modal hidden"><form id="customerForm" class="card form"><div class="modal-head"><h2>新增演示客户</h2><button type="button" id="close">×</button></div><label>客户姓名<input name="name" value="未命名"></label><label>电话号码<input name="phone" value="+"></label><label>国家<select name="country"><option>哈萨克斯坦</option><option>俄罗斯</option><option>阿联酋</option><option>中国</option></select></label><label>客户来源<select name="source"><option>TikTok</option><option>WhatsApp</option><option>Instagram</option><option>展会</option></select></label><button class="primary">保存演示客户</button></form></div><div id="toast"></div><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#0b2a78"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Auto CRM">
+<title>China Auto Export CRM</title><link rel="manifest" href="manifest.webmanifest?v=3"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3"><link rel="icon" type="image/png" sizes="192x192" href="app-icon-192.png?v=3"><link rel="stylesheet" href="style.css?v=20261103-12"><link rel="stylesheet" href="form-overrides.css?v=20261103-12">
+</head>
+<body>
+<div id="login" class="login"><div class="login-card"><h1>China Auto Export CRM</h1><p>海外汽车出口客户管理系统</p>
+<input id="username" placeholder="用户名" value="admin"><input id="password" type="password" placeholder="密码" value="ChangeMe123!">
+<button onclick="login()">登录系统</button><small>公开演示版 · 使用虚构客户数据</small></div></div>
+<div id="app" class="shell hidden">
+<aside><div class="brand">CA <span>CRM</span></div><nav>
+<button class="nav active" data-page="dashboard">▦ 总览仪表盘</button>
+<button class="nav" data-page="customers">♙ 客户管理</button>
+<button class="nav" data-page="reminders">◷ 跟进提醒</button>
+<button class="nav" data-page="quotes">＄ 报价管理</button>
+<button class="nav" data-page="trash">♲ 客户回收站</button>
+</nav><div class="side-foot">China Auto Export<br><small id="userlabel"></small><button class="ghost" onclick="logout()">退出登录</button></div></aside>
+<main><header><div><div class="eyebrow">SALES WORKSPACE</div><h2 id="pagetitle">总览仪表盘</h2></div><div class="top-actions"><button id="export-backup" class="outline hidden" onclick="exportBackup()">导出备份</button><button class="outline" onclick="document.getElementById('excel').click()">导入 Excel</button><input id="excel" type="file" accept=".xlsx" hidden onchange="importExcel(this)"><button onclick="openCustomer()">＋ 新增客户</button></div></header>
+<section id="content"></section></main></div>
+<div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h3 id="modal-title">新增客户</h3><button type="button" class="ghost modal-close" aria-label="关闭" onclick="closeModal()">✕</button></div><div id="modal-body"></div></div></div>
+<div id="toast" class="toast"></div><script src="app.js?v=20261103-12"></script>
+</body></html>
