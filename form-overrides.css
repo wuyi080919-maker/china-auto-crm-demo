@@ -982,6 +982,10 @@ body.modal-open {
   vertical-align: middle;
 }
 
+.quote-detail-list > div:last-child {
+  align-items: center;
+}
+
 .quote-detail-list strong,
 .quote-detail-list b,
 .quote-detail-list small {
