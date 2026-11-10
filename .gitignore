@@ -1,1 +1,5 @@
 .DS_Store
+.openai/.source-credential*
+*.zip
+.openai/
+dist/
