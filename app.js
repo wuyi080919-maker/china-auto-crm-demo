@@ -1,5 +1,6 @@
 let token=localStorage.getItem("crm_token"), page="dashboard", customers=[], quotes=[];
 const CUSTOMER_STATUSES=["待开发","已联系","已回复","意向客户","重点客户","老客户","暂时搁置","无效","同行"];
+const TRADE_TERMS=["EXW","FCA","FAS","FOB","CFR","CIF","CPT","CIP","DAP","DPU","DDP"];
 const $=id=>document.getElementById(id);
 async function api(path,opts={}){let h=opts.headers||{};if(token)h.Authorization="Bearer "+token;if(opts.body instanceof FormData){}else if(opts.body){h["Content-Type"]="application/json";opts.body=JSON.stringify(opts.body)}let r=await fetch("/api"+path,{...opts,headers:h});let d=await r.json().catch(()=>({detail:"服务器响应异常"}));if(!r.ok)throw Error(d.detail||"请求失败");return d}
 function toast(s){$("toast").textContent=s;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),2800)}
@@ -89,5 +90,7 @@ function formatPhoneDisplay(value){let digits=String(value||"").replace(/\D/g,""
 function phoneForWhatsApp(value){return String(value||"").replace(/\D/g,"")}
 function copyEncoded(value){copyText(decodeURIComponent(value))}
 async function copyText(value){try{await navigator.clipboard.writeText(String(value||""));toast("已复制")}catch(e){let input=document.createElement("textarea");input.value=String(value||"");document.body.appendChild(input);input.select();document.execCommand("copy");input.remove();toast("已复制")}}
-if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js");
+function refreshTradeTermOptions(){document.querySelectorAll('#quote-form select[name="trade_term"],#quote-term-filter').forEach(select=>{let expected=TRADE_TERMS.length+(select.id==="quote-term-filter"?1:0);if(select.options.length===expected)return;let selected=select.value,placeholder=select.id==="quote-term-filter"?'<option value="">条款</option>':"";select.innerHTML=placeholder+TRADE_TERMS.map(term=>`<option value="${term}">${term}</option>`).join("");select.value=TRADE_TERMS.includes(selected)?selected:""})}
+new MutationObserver(refreshTradeTermOptions).observe(document.body,{childList:true,subtree:true});
 if(token)start();
+
