@@ -972,6 +972,13 @@ body.modal-open {
   white-space: nowrap;
 }
 
+.quote-detail-list > div > .pill {
+  align-self: center;
+  justify-self: start;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+
 .quote-detail-list strong,
 .quote-detail-list b,
 .quote-detail-list small {
