@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#0b2a78"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Auto CRM">
-<title>China Auto Export CRM · 模板演示</title><link rel="manifest" href="./manifest.webmanifest?v=2"><link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="./app-icon-192.png?v=2"><link rel="stylesheet" href="./style.css?v=20261110-24"><link rel="stylesheet" href="./form-overrides.css?v=20261110-24">
+<title>China Auto Export CRM</title><link rel="manifest" href="/manifest.webmanifest?v=2"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2"><link rel="icon" type="image/png" sizes="192x192" href="/app-icon-192.png?v=2"><link rel="stylesheet" href="/style.css?v=20261110-24"><link rel="stylesheet" href="/form-overrides.css?v=20261110-25">
 </head>
 <body>
-<div id="login" class="login"><div class="login-card"><h1>China Auto Export CRM</h1><p>海外汽车出口客户管理系统 · 在线模板</p>
-<input id="username" placeholder="用户名" value="demo"><input id="password" type="password" placeholder="密码" value="demo">
-<button onclick="login()">进入模板演示</button><small>内含 30 位完全虚构的模板客户，不包含任何真实客户资料。</small></div></div>
+<div id="login" class="login"><div class="login-card"><h1>China Auto Export CRM</h1><p>海外汽车出口客户管理系统</p>
+<input id="username" placeholder="用户名" value="admin"><input id="password" type="password" placeholder="密码" value="ChangeMe123!">
+<button onclick="login()">登录系统</button><small>首次启动默认账号：admin / ChangeMe123!，上线前请修改。</small></div></div>
 <div id="app" class="shell hidden">
 <aside><div class="brand">CA <span>CRM</span></div><nav>
 <button class="nav active" data-page="dashboard">▦ 总览仪表盘</button>
@@ -20,5 +20,5 @@
 <main><header><div><div class="eyebrow">SALES WORKSPACE</div><h2 id="pagetitle">总览仪表盘</h2></div><div class="top-actions"><button id="export-backup" class="outline hidden" onclick="exportBackup()">导出备份</button><button class="outline" onclick="document.getElementById('excel').click()">导入 Excel</button><input id="excel" type="file" accept=".xlsx" hidden onchange="importExcel(this)"><button onclick="openCustomer()">＋ 新增客户</button></div></header>
 <section id="content"></section></main></div>
 <div id="modal" class="modal hidden"><div class="modal-card"><div class="modal-head"><h3 id="modal-title">新增客户</h3><button type="button" class="ghost modal-close" aria-label="关闭" onclick="closeModal()">✕</button></div><div id="modal-body"></div></div></div>
-<div id="toast" class="toast"></div><script src="./mock-api.js?v=1"></script><script src="./app.js?v=20261110-24"></script>
+<div id="toast" class="toast"></div><script src="/app.js?v=20261110-24"></script>
 </body></html>

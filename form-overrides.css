@@ -973,6 +973,9 @@ body.modal-open {
 }
 
 .quote-detail-list > div > .pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
   align-self: center;
   justify-self: start;
   line-height: 1.2;
