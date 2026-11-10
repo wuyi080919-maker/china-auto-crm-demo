@@ -1191,6 +1191,21 @@ body.modal-open {
     font-size: 8px;
   }
 
+  .priority-table .copy-btn,
+  .priority-table .followup-btn,
+  .priority-table .edit-btn,
+  .priority-table .priority-remove-btn {
+    min-height: 20px;
+    padding: 2px 4px;
+    font-size: 8px;
+    line-height: 1.2;
+    border-radius: 5px;
+  }
+
+  .priority-table .copyable {
+    gap: 3px;
+  }
+
   .contact-trash-table th,
   .contact-trash-table td {
     padding: 6px 3px;
